@@ -35,6 +35,8 @@ $actions["valid"]=function($args){
 if(isset($_POST["action"]))
 	$calls[]=$_POST;
 
+//On termine en lançant le serveur avec tous les bons paramêtre, sans même avoir à le stocker.
+//On l'utilise alors comme une sorte de grosse fonction
 try{
 	json_dump(
 		(new sss($actions, $calls))->exe()
