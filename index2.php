@@ -14,6 +14,7 @@ include "sss/sss.php";
 function json_dump($var){
 	echo "<pre>".json_encode($var,JSON_PRETTY_PRINT )."</pre>";
 }
+define("BR", "<br/>");
 
 //on instancie le serveur
 $server = new sss();
@@ -30,6 +31,12 @@ $server->setAction("valid",function($args){
 	else return 'tout est ok';
 });
 
+echo "Test declarer 2 fois la meme action : ".BR;
+try{
+	$server->setAction("valid", function(){});
+} catch(Exception $e){
+	echo $e->getMessage().BR.BR;
+}
 
 
 //Si l'utilisateur DEMANDE une action, on peut alors l'utiliser
